@@ -1,6 +1,7 @@
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 export default () => ({
 	entry: path.resolve(__dirname, 'src/index.jsx'),
@@ -20,6 +21,7 @@ export default () => ({
 			filename: 'style.css',
 			allChunks: true,
 		}),
+		new UglifyJsPlugin(),
 	],
 	module: {
 		rules: [
