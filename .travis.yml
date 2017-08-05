@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "6"
+
+before_script:
+  - npm install -g yarn
+  - yarn install
+
+script:
+  - yarn build
+
+deploy:
+  - provider: script
+    script: yarn deploy
+    skip_cleanup: true
+    on:
+      branch: stable
